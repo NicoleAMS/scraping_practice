@@ -1,0 +1,12 @@
+<h1> Esprit Organic Cotton Collection </h1>
+<br>
+
+<% @esprit.each do | product | %>
+  <p><strong><%= product[:description] %></strong></p>
+  <p><i><%= product[:price] %></i></p>
+  <% product[:colours].each do | colour | %>
+    <p><%= colour %></p>
+  <% end %>
+  <a href="<%= product[:product_url] %>"><img src="<%= product[:image_url] %>" height="250"></a>
+  <br><hr><br>
+<% end %>

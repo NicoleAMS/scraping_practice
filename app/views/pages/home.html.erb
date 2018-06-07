@@ -3,7 +3,11 @@
 
 <% @esprit.each do | product | %>
   <p><strong><%= product[:description] %></strong></p>
-  <p><i><%= product[:price] %></i></p>
+  <p><i><%= product[:price] %></i>
+    <% if product[:reduced_price] %>
+      <%= product[:reduced_price] %>
+    <% end %>
+  </p>
   <% product[:colours].each do | colour | %>
     <p><%= colour %></p>
   <% end %>

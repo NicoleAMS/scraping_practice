@@ -34,7 +34,10 @@ class PagesController < ApplicationController
       i = {}
       if li.inner_html.include? "hc-color-thumb-container"
         i[:description] = li.element(css: '.product-description').text
-        i[:price] = li.element(css: '.reduced-price').text || li.element(css: '.basic-price').text
+        if li.element(css: '.reduced-price').exists?
+          i[:reduced_price] = li.element(css: '.reduced-price').text
+        end
+        i[:price] = li.element(css: '.basic-price').text
         i[:colours] = []
         li.element(css: '.hc-color-thumb-container').children.each do | colour |
           i[:colours] << colour.element(css: 'span.hc-tooltip').inner_html
@@ -44,6 +47,7 @@ class PagesController < ApplicationController
         @esprit << i
       end
     end
+    binding.pry
   end
 
 end

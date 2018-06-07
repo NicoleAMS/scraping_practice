@@ -31,8 +31,12 @@ class PagesController < ApplicationController
         end
         product[:price] = li.element(css: '.basic-price').text
         product[:colours] = []
+        product[:colour_images] = []
         li.element(css: '.hc-color-thumb-container').children.each do | colour |
           product[:colours] << colour.element(css: 'span.hc-tooltip').inner_html
+          if colour.element(css: 'a.hc-color-thumb img').exists?
+            product[:colour_images] << colour.element(css: 'a.hc-color-thumb img').attribute_value('src')
+          end
         end
         product[:image_url] = li.element(css: '.product-image-container a .product-image-view').attribute_value('src')
         product[:product_url] = li.element(css: '.product-info-container a').attribute_value('href')

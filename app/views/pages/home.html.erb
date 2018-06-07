@@ -1,16 +1,39 @@
-<h1> Esprit Organic Cotton Collection </h1>
-<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-uppercase heading"> Esprit Organic Cotton Collection </h1>
+    </div>
+  </div>
 
-<% @esprit.each do | product | %>
-  <p><strong><%= product[:description] %></strong></p>
-  <p><i><%= product[:price] %></i>
-    <% if product[:reduced_price] %>
-      <%= product[:reduced_price] %>
+  <div class="row products">
+    <% @esprit.each do | product | %>
+      <div class="col-sm-3">
+        <div class="product-container">
+          <div class="product-img">
+            <a href="<%= product[:product_url] %>"><img src="<%= product[:image_url] %>"></a>
+          </div>
+          <div class="product-info">
+            <div class="colours-row">
+              <ul class="colours">
+                <% product[:colour_images].each do | colour_img | %>
+                  <li>
+                    <img src="<%= colour_img %>">
+                    <span class="colour_name"></span>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="product-description">
+              <p><strong><%= product[:description] %></strong></p>
+              <p class="price"><%= product[:price] %>
+              <% if product[:reduced_price] %>
+                <span class="reduced-price"><%= product[:reduced_price] %></span>
+              <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </p>
-  <% product[:colours].each do | colour | %>
-    <p><%= colour %></p>
-  <% end %>
-  <a href="<%= product[:product_url] %>"><img src="<%= product[:image_url] %>" height="250"></a>
-  <br><hr><br>
-<% end %>
+  </div>
+</div>

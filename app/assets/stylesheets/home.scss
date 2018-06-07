@@ -1,0 +1,55 @@
+.heading {
+  text-align: center;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.products {
+  text-align: center;
+}
+
+.product-container {
+  width: 90%;
+  display: inline-block;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  float: none;
+}
+
+.product-info {
+  border: 1px solid lightgrey;
+  border-top: 0;
+  padding-top: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 160px;
+}
+
+.product-img {
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.colours {
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+
+    img {
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+    }
+  }
+}
+
+.reduced-price {
+  color: red;
+  font-weight: 700;
+  margin: 0 5px;
+}
